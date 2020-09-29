@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: materialized-view
+  kafka:
+    consumer:
+      group-id: materialized-view-2
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:ORCL2
+    username: SCOTT
+    password: tiger
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+
+customer:
+  destination:
+    mv-publish:
+      topic: materialized-view-2
