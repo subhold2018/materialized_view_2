@@ -38,19 +38,10 @@ public class CustomerService {
                   customerEntity.setEmailType(email.getUseType());
                   customerEntity.setEmail(email.getEmail());
                   emailEntities.add(customerEntity);
-              }else{
-                  EmailEntity customerEntity = new EmailEntity();
-                  customerEntity.setPartyUid(customer.getGuid());
-                  customerEntity.setSource(email.getSource());
-                  customerEntity.setSourceId(email.getSourceId());
-                  customerEntity.setEmailType(email.getUseType());
-                  customerEntity.setEmail(email.getEmail());
-                  deleteEntity.add(customerEntity);
               }
           });
+          customerRepository.deleteAll(customerRepository.findByPartyUid(guid));
           customerRepository.saveAll(emailEntities);
-          if(deleteEntity.size()>0)
-              customerRepository.deleteAll(deleteEntity);
         }catch (Exception exception){
             log.error("Exception while saving customer data into mv-2==>customer table guid={}",guid,exception);
         }
