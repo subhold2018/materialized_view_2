@@ -26,7 +26,6 @@ public class CustomerService {
           ObjectMapper objectMapper=new ObjectMapper();
           Customer customer=objectMapper.readValue(data,Customer.class);
           List<EmailEntity> emailEntities=new ArrayList<>();
-          List<EmailEntity> deleteEntity=new ArrayList<>();
           guid=customer.getGuid();
           customer.getEmails().forEach(email -> {
               if(!"Y".equalsIgnoreCase(email.getLogicalDeleteFlg())
