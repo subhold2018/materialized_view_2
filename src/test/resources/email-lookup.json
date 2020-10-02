@@ -1,0 +1,19 @@
+{
+  "guid":"guid-1299888",
+  "emails":[
+    {
+      "email" :"jeethome2-update@gmail.com",
+      "logicalDeleteFlg": "Y",
+      "useType":"Home2",
+      "sourceId":"9976544",
+      "source": "CS"
+    },
+    {
+      "email" :"jeetOffice@lumendata.com",
+      "logicalDeleteFlg": "N",
+      "useType":"Office",
+      "sourceId":"9976548",
+      "source": "HR"
+    }
+  ]
+}
