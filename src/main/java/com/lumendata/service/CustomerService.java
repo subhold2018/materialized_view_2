@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES;
+
 @Component
 @Slf4j
 public class CustomerService {
@@ -24,6 +26,7 @@ public class CustomerService {
         String guid=null;
       try{
           ObjectMapper objectMapper=new ObjectMapper();
+//          objectMapper.configure(FAIL_ON_UNKNOWN_PROPERTIES, false);
           Customer customer=objectMapper.readValue(data,Customer.class);
           List<EmailEntity> emailEntities=new ArrayList<>();
           guid=customer.getGuid();
